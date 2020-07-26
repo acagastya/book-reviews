@@ -62,7 +62,9 @@ function Article({ author, disqusConfig, html, lang, tags }) {
         dangerouslySetInnerHTML={{ __html: html }}
       />
       <Footer author={author} tags={tags} />
-      <Disqus config={disqusConfig} />
+      <section className="post-full-comments">
+        <Disqus config={disqusConfig} />
+      </section>
     </article>
   );
 }
