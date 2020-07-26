@@ -11,7 +11,7 @@ const { repo } = siteMetadata;
 function Template({ data }) {
   const { markdownRemark } = data;
   const { frontmatter, html } = markdownRemark;
-  const { author, lang = 'en', path, tags, title } = frontmatter;
+  const { author, cover, lang = 'en', path, tags, title } = frontmatter;
   const { siteUrl } = data.site.siteMetadata;
   const disqusConfig = {
     url: `${siteUrl}${path}`,
@@ -20,7 +20,7 @@ function Template({ data }) {
   };
   return (
     <Layout showHeader={false} heading={title}>
-      <SEO blog={true} path={path} tags={tags} title={title} />
+      <SEO cover={cover} blog={true} path={path} tags={tags} title={title} />
       <Article
         author={author}
         disqusConfig={disqusConfig}
@@ -39,6 +39,7 @@ export const query = graphql`
       html
       frontmatter {
         author
+        cover
         lang
         path
         tags

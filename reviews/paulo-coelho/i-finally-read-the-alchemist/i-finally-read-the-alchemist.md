@@ -1,5 +1,6 @@
 ---
 author: 'Paulo Coelho'
+cover: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1445444894l/1175481._SY475_.jpg'
 date: '2020-07-25'
 draft: false
 lang: 'en'
@@ -7,6 +8,7 @@ misattributed: false
 path: '/i-finally-read-the-alchemist'
 tags: ['Adventure', 'Fiction', 'Fantasy']
 title: 'I finally read The Alchemist'
+
 ---
 
 # I finally read _The Alchemist_

@@ -11,7 +11,15 @@ import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 
-function SEO({ blog = false, description, lang, path, tags, title }) {
+function SEO({
+  blog = false,
+  cover = '',
+  description,
+  lang,
+  path,
+  tags,
+  title,
+}) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -43,6 +51,7 @@ function SEO({ blog = false, description, lang, path, tags, title }) {
       <meta property="og:site_name" content={site.siteMetadata.siteName} />
       <meta property="og:type" content={type} />
       <meta property="og:title" content={title} />
+      {cover && <meta property="og:image" content={cover} />}
       <meta property="og:description" content={metaDescription} />
       {blog && path ? (
         <meta
@@ -50,8 +59,8 @@ function SEO({ blog = false, description, lang, path, tags, title }) {
           content={`${site.siteMetadata.siteUrl}/review${path}`}
         />
       ) : (
-          <meta property="og:url" content={`${site.siteMetadata.siteUrl}`} />
-        )}
+        <meta property="og:url" content={`${site.siteMetadata.siteUrl}`} />
+      )}
       {blog &&
         tags.length &&
         tags.map(tag => (
@@ -65,8 +74,8 @@ function SEO({ blog = false, description, lang, path, tags, title }) {
           content={`${site.siteMetadata.siteUrl}/review${path}`}
         />
       ) : (
-          <meta name="twitter:url" content={`${site.siteMetadata.siteUrl}`} />
-        )}
+        <meta name="twitter:url" content={`${site.siteMetadata.siteUrl}`} />
+      )}
       {blog && <meta name="twitter:label1" content="Written by" />}
       {blog && <meta name="twitter:data1" content={site.siteMetadata.author} />}
       {blog && tags.length && (
